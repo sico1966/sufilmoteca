@@ -1,4 +1,6 @@
-from bottle import route, default_app
+#_*_ coding: utf-8 _*_
+from bottle import request, Bottle, route,run,template,static_file,default_app
+import requests 
 
 @route('/name/<name>')
 def nameindex(name='Stranger'):
@@ -16,7 +18,7 @@ def lista():
 	j=r.json()
 	lista=[]
 	for peli in j["results"]: # recorre las peliculas
-		lista.append(peli["title"]) # añade los titulos a lista que estaba vacia
+		lista.append(peli["title"]) # añade los titulos a que estaba vacia
 
 	return template("fichero.tpl", listado=lista) #retorna la lista
 
