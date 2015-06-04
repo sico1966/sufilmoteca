@@ -6,5 +6,5 @@ setup(name='Manuel',
       author='Manuel Chacon',
       author_email='eb7bmg@gmail.com',
       url='http://www.python.org/sigs/distutils-sig/',
-      install_requires=['bottle'requests,request],
+      install_requires=['bottle','request'],
      )
