@@ -1,14 +1,7 @@
 #_*_ coding: utf-8 _*_
-from bottle import request, Bottle, route,run,template,static_file,default_app
+from bottle import request, Bottle, route,run,template,static_file
 import requests 
 
-@route('/name/<name>')
-def nameindex(name='Stranger'):
-    return '<strong>Hola, %s!</strong>' % name
- 
-@route('/')
-def index():
-    return '<strong>Hello World!</strong>'
 
 @route('/lista') # creamos una linea por cada informacion que saquemos del json
 def lista():
@@ -22,11 +15,6 @@ def lista():
 
 	return template("fichero.tpl", listado=lista) #retorna la lista
 
-# This must be added in order to do correct path lookups for the views
-import os
-from bottle import TEMPLATE_PATH
-TEMPLATE_PATH.append(os.path.join(os.environ['OPENSHIFT_REPO_DIR'], 'wsgi/views/')) 
 
-application=default_app()
 
 
